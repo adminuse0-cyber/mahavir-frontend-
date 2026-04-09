@@ -1,0 +1,40 @@
+.scrolling-container {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.scrolling-wrapper {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    animation: marquee-scroll linear infinite;
+}
+
+.scrolling-block {
+    display: flex;
+}
+
+.scrolling-text {
+    padding-right: 1000px;
+    /* Large space gap between text loops */
+    font-size: 15px;
+    /* Big text, matches top bar font size */
+    flex-shrink: 0;
+}
+
+/* Pause the animation on hover! */
+.scrolling-container:hover .scrolling-wrapper {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

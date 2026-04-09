@@ -1,0 +1,136 @@
+.products-page {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.category-section {
+  padding: 40px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.category-title {
+  color: #d1121d;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.category-subtitle {
+  color: #333;
+  font-size: 14px;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.scrolling-wrapper {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 10px 0 20px 0;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+}
+
+.scrolling-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrolling-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.scrolling-wrapper::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+.scrolling-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #aaa;
+}
+
+.product-card {
+  flex: 0 0 calc(25% - 15px);
+  min-width: 250px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+  background: #edecec;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+.product-image-container {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  /* Configured to specific requested 2:1 ratio */
+  overflow: hidden;
+  background-color: transparent;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* Ensures the FULL image is visible without cropping */
+  transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.08);
+}
+
+.product-info {
+  padding: 10px 0 5px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.product-name {
+  color: #d1121d;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.product-link {
+  color: #333;
+  font-size: 14px;
+}
+
+@media (max-width: 1024px) {
+  .product-card {
+    flex: 0 0 calc(33.333% - 15px);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    flex: 0 0 calc(50% - 15px);
+  }
+  .category-title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    flex: 0 0 calc(85% - 15px);
+    min-width: 200px;
+  }
+  .category-section {
+    padding: 30px 15px;
+  }
+}

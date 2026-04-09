@@ -1,0 +1,634 @@
+{
+  "Blouse": [
+    {
+      "name": "Blouse Pcs",
+      "file": "Blouse Pcs.webp",
+      "gallery": [
+        "Blouse Pcs 2.webp",
+        "Blouse Pcs 3.webp",
+        "Blouse Pcs 4.webp",
+        "Blouse Pcs 5.webp",
+        "Blouse Pcs 6.webp"
+      ]
+    },
+    {
+      "name": "Designer Blouse",
+      "file": "Designer Blouse.webp",
+      "gallery": [
+        "Designer Blouse 2.webp",
+        "Designer Blouse 3.webp",
+        "Designer Blouse 4.webp",
+        "Designer Blouse 5.webp",
+        "Designer Blouse 6.webp"
+      ]
+    },
+    {
+      "name": "Ready Made Blouse",
+      "file": "Ready Made Blouse.webp",
+      "gallery": [
+        "Ready Made Blouse 2.webp",
+        "Ready Made Blouse 3.webp",
+        "Ready Made Blouse 4.webp",
+        "Ready Made Blouse 5.webp",
+        "Ready Made Blouse 6.webp"
+      ]
+    },
+    {
+      "name": "Stretchable Blouse",
+      "file": "Stretchable Blouse.webp",
+      "gallery": [
+        "Stretchable Blouse 2.webp",
+        "Stretchable Blouse 3.webp",
+        "Stretchable Blouse 4.webp",
+        "Stretchable Blouse 5.webp",
+        "Stretchable Blouse 6.webp"
+      ]
+    }
+  ],
+  "Dupatta": [
+    {
+      "name": "Chiffon Dupatta",
+      "file": "Chiffon Dupatta.webp",
+      "gallery": [
+        "Chiffon Dupatta 2.webp",
+        "Chiffon Dupatta 3.webp",
+        "Chiffon Dupatta 4.webp",
+        "Chiffon Dupatta 5.webp",
+        "Chiffon Dupatta 6.jpg"
+      ]
+    },
+    {
+      "name": "Cotton Dupatta",
+      "file": "Cotton Dupatta.webp",
+      "gallery": [
+        "Cotton Dupatta 2.webp",
+        "Cotton Dupatta 3.webp",
+        "Cotton Dupatta 4.jpg",
+        "Cotton Dupatta 5.jpg",
+        "Cotton Dupatta 6.webp"
+      ]
+    },
+    {
+      "name": "Embroidery Dupatta",
+      "file": "Embroidery Dupatta.webp",
+      "gallery": [
+        "Embroidery Dupatta 2.webp",
+        "Embroidery Dupatta 3.webp",
+        "Embroidery Dupatta 4.webp",
+        "Embroidery Dupatta 5.webp",
+        "Embroidery Dupatta 6.webp"
+      ]
+    },
+    {
+      "name": "Georgette Dupatta",
+      "file": "Georgette Dupatta.webp",
+      "gallery": [
+        "Georgette Dupatta 2.webp",
+        "Georgette Dupatta 3.webp",
+        "Georgette Dupatta 4.webp",
+        "Georgette Dupatta 5.webp",
+        "Georgette Dupatta 6.webp"
+      ]
+    },
+    {
+      "name": "Linen Dupatta",
+      "file": "Linen Dupatta.avif",
+      "gallery": [
+        "Linen Dupatta 2.jpg",
+        "Linen Dupatta 3.avif",
+        "Linen Dupatta 4.avif",
+        "Linen Dupatta 5.avif",
+        "Linen Dupatta 6.avif"
+      ]
+    },
+    {
+      "name": "Net Dupatta",
+      "file": "Net Dupatta.webp",
+      "gallery": [
+        "Net Dupatta 2.webp",
+        "Net Dupatta 3.webp",
+        "Net Dupatta 4.webp",
+        "Net Dupatta 5.jpg",
+        "Net Dupatta 6.webp"
+      ]
+    },
+    {
+      "name": "Plain Dupatta",
+      "file": "Plain Dupatta.webp",
+      "gallery": [
+        "Plain Dupatta 2.webp",
+        "Plain Dupatta 3.webp",
+        "Plain Dupatta 4.webp",
+        "Plain Dupatta 5.webp",
+        "Plain Dupatta 6.webp"
+      ]
+    },
+    {
+      "name": "Printed Dupatta",
+      "file": "Printed Dupatta.webp",
+      "gallery": [
+        "Printed Dupatta 2.webp",
+        "Printed Dupatta 3.webp",
+        "Printed Dupatta 4.webp",
+        "Printed Dupatta 5.webp",
+        "Printed Dupatta 6.webp"
+      ]
+    },
+    {
+      "name": "Rayon Dupatta",
+      "file": "Rayon Dupatta.webp",
+      "gallery": [
+        "Rayon Dupatta 2.webp",
+        "Rayon Dupatta 3.webp",
+        "Rayon Dupatta 4.webp",
+        "Rayon Dupatta 5.webp",
+        "Rayon Dupatta 6.webp"
+      ]
+    },
+    {
+      "name": "Satin Dupatta",
+      "file": "Satin Dupatta.webp",
+      "gallery": [
+        "Satin Dupatta 2.jpg",
+        "Satin Dupatta 3.webp",
+        "Satin Dupatta 4.webp",
+        "Satin Dupatta 5.webp",
+        "Satin Dupatta 6.webp"
+      ]
+    },
+    {
+      "name": "Silk Dupatta",
+      "file": "Silk Dupatta.avif",
+      "gallery": [
+        "Silk Dupatta 2.avif",
+        "Silk Dupatta 3.avif",
+        "Silk Dupatta 4.avif",
+        "Silk Dupatta 5.avif",
+        "Silk Dupatta 6.avif"
+      ]
+    },
+    {
+      "name": "Velvet Dupatta",
+      "file": "Velvet Dupatta.avif",
+      "gallery": [
+        "Velvet Dupatta 2.avif",
+        "Velvet Dupatta 3.avif",
+        "Velvet Dupatta 4.avif",
+        "Velvet Dupatta 5.avif",
+        "Velvet Dupatta 6.avif"
+      ]
+    }
+  ],
+  "Kurti": [
+    {
+      "name": "Half Sleeve Kurtis",
+      "file": "Half Sleeve Kurtis.webp",
+      "gallery": [
+        "Half Sleeve Kurtis 2.webp",
+        "Half Sleeve Kurtis 3.jpg",
+        "Half Sleeve Kurtis 4.webp",
+        "Half Sleeve Kurtis 5.webp",
+        "Half Sleeve Kurtis 6.webp"
+      ]
+    },
+    {
+      "name": "Handloom Cotton Kurti",
+      "file": "Handloom Cotton Kurti.webp",
+      "gallery": [
+        "Handloom Cotton Kurti 2.webp",
+        "Handloom Cotton Kurti 3.jpg",
+        "Handloom Cotton Kurti 4.webp",
+        "Handloom Cotton Kurti 5.webp",
+        "Handloom Cotton Kurti 6.webp"
+      ]
+    },
+    {
+      "name": "Ladies Kurti",
+      "file": "Ladies Kurti.webp",
+      "gallery": [
+        "Ladies Kurti 2.webp",
+        "Ladies Kurti 3.webp",
+        "Ladies Kurti 4.webp",
+        "Ladies Kurti 5.webp",
+        "Ladies Kurti 6.webp"
+      ]
+    },
+    {
+      "name": "Long Kurti",
+      "file": "Long Kurti.jpg",
+      "gallery": [
+        "Long Kurti 2.jpg",
+        "Long Kurti 3.jpg",
+        "Long Kurti 4.jpg",
+        "Long Kurti 5.jpg",
+        "Long Kurti 6.jpg"
+      ]
+    },
+    {
+      "name": "Lucknowi Kurtis",
+      "file": "Lucknowi Kurtis.webp",
+      "gallery": [
+        "Lucknowi Kurtis 2.webp",
+        "Lucknowi Kurtis 3.webp",
+        "Lucknowi Kurtis 4.webp",
+        "Lucknowi Kurtis 5.webp",
+        "Lucknowi Kurtis 6.webp"
+      ]
+    },
+    {
+      "name": "Nayra Cut Kurti",
+      "file": "Nayra Cut Kurti.webp",
+      "gallery": [
+        "Nayra Cut Kurti 2.webp",
+        "Nayra Cut Kurti 3.webp",
+        "Nayra Cut Kurti 4.webp",
+        "Nayra Cut Kurti 5.webp",
+        "Nayra Cut Kurti 6.webp"
+      ]
+    },
+    {
+      "name": "Surat Kurta",
+      "file": "Surat Kurta.webp",
+      "gallery": [
+        "Surat Kurta 2.webp",
+        "Surat Kurta 3.webp",
+        "Surat Kurta 4.webp",
+        "Surat Kurta 5.webp",
+        "Surat Kurta 6.webp"
+      ]
+    },
+    {
+      "name": "Surat Kurti",
+      "file": "Surat Kurti.webp",
+      "gallery": [
+        "Surat Kurti 2.webp",
+        "Surat Kurti 3.webp",
+        "Surat Kurti 4.webp",
+        "Surat Kurti 5.webp",
+        "Surat Kurti 6.webp"
+      ]
+    }
+  ],
+  "Lehenga": [
+    {
+      "name": "Party Wear Lehenga",
+      "file": "Party Wear Lehenga.webp",
+      "gallery": [
+        "Party Wear Lehenga 2.webp",
+        "Party Wear Lehenga 3.webp",
+        "Party Wear Lehenga 4.webp",
+        "Party Wear Lehenga 5.webp",
+        "Party Wear Lehenga 6.webp"
+      ]
+    },
+    {
+      "name": "Bridal Lehenga",
+      "file": "Bridal Lehenga.webp",
+      "gallery": [
+        "Bridal Lehenga 2.webp",
+        "Bridal Lehenga 3.webp",
+        "Bridal Lehenga 4.webp",
+        "Bridal Lehenga 5.webp",
+        "Bridal Lehenga 6.webp"
+      ]
+    },
+    {
+      "name": "Designer Lehenga",
+      "file": "Designer Lehenga.webp",
+      "gallery": [
+        "Designer Lehenga 2.webp",
+        "Designer Lehenga 3.webp",
+        "Designer Lehenga 4.webp",
+        "Designer Lehenga 5.webp",
+        "Designer Lehenga 6.webp"
+      ]
+    },
+    {
+      "name": "Indo Western Lehenga",
+      "file": "Indo Western Lehenga.webp",
+      "gallery": [
+        "Indo Western Lehenga 2.webp",
+        "Indo Western Lehenga 3.jpg",
+        "Indo Western Lehenga 4.webp",
+        "Indo Western Lehenga 5.webp",
+        "Indo Western Lehenga 6.webp"
+      ]
+    },
+    {
+      "name": "Surat Lehenga",
+      "file": "Surat Lehenga.webp",
+      "gallery": [
+        "Surat Lehenga 2.webp",
+        "Surat Lehenga 3.webp",
+        "Surat Lehenga 4.webp",
+        "Surat Lehenga 5.webp",
+        "Surat Lehenga 6.jpg"
+      ]
+    },
+    {
+      "name": "Wedding Lehenga",
+      "file": "Wedding Lehenga.webp",
+      "gallery": [
+        "Wedding Lehenga 2.webp",
+        "Wedding Lehenga 3.webp",
+        "Wedding Lehenga 4.webp",
+        "Wedding Lehenga 5.webp",
+        "Wedding Lehenga 6.jpg"
+      ]
+    }
+  ],
+  "Petticoat": [
+    {
+      "name": "Poplin Petticoat",
+      "file": "Poplin Petticoat 2.webp",
+      "gallery": [
+        "Poplin Petticoat.webp",
+        "Poplin Petticoat 3.webp",
+        "Poplin Petticoat 4.webp",
+        "Poplin Petticoat 5.webp",
+        "Poplin Petticoat 6.jpg"
+      ]
+    },
+    {
+      "name": "Poplin Than Petticoat",
+      "file": "Poplin Than Petticoat 4.webp",
+      "gallery": [
+        "Poplin Than Petticoat 2.webp",
+        "Poplin Than Petticoat 3.webp",
+        "Poplin Than Petticoat.webp",
+        "Poplin Than Petticoat 5.webp",
+        "Poplin Than Petticoat 6.jpg"
+      ]
+    },
+    {
+      "name": "saree Shapewear Petticoat",
+      "file": "saree Shapewear Petticoat 2.webp",
+      "gallery": [
+        "saree Shapewear Petticoat.webp",
+        "saree Shapewear Petticoat 3.webp",
+        "saree Shapewear Petticoat 4.webp",
+        "saree Shapewear Petticoat 5.webp",
+        "saree Shapewear Petticoat 6.jpg"
+      ]
+    },
+    {
+      "name": "Stitch Petticoat",
+      "file": "Stitch Petticoat.webp",
+      "gallery": [
+        "Stitch Petticoat 2.webp",
+        "Stitch Petticoat 3.webp",
+        "Stitch Petticoat 4.webp",
+        "Stitch Petticoat 5.webp",
+        "Stitch Petticoat 6.jpg"
+      ]
+    }
+  ],
+  "Saree": [
+    {
+      "name": "Cotton Sarees",
+      "file": "Cotton Sarees.jpg",
+      "gallery": [
+        "Cotton Sarees 2.jpg",
+        "Cotton Sarees 3.jpg",
+        "Cotton Sarees 4.jpg",
+        "Cotton Sarees 5.jpg",
+        "Cotton Sarees 6.jpg"
+      ]
+    },
+    {
+      "name": "Dyed Fancy Matching Saree",
+      "file": "Dyed Fancy Matching Saree.jpg",
+      "gallery": [
+        "Dyed Fancy Matching Saree 2.jpg",
+        "Dyed Fancy Matching Saree 3.jpg",
+        "Dyed Fancy Matching Saree 4.jpg",
+        "Dyed Fancy Matching Saree 5.jpg",
+        "Dyed Fancy Matching Saree 6.jpg"
+      ]
+    },
+    {
+      "name": "Dyed Matching Sarees",
+      "file": "Dyed Matching Sarees.webp",
+      "gallery": [
+        "Dyed Matching Sarees 2.webp",
+        "Dyed Matching Sarees 3.webp",
+        "Dyed Matching Sarees 4.webp",
+        "Dyed Matching Sarees 5.webp",
+        "Dyed Matching Sarees 6.webp"
+      ]
+    },
+    {
+      "name": "Paithani Sarees",
+      "file": "Paithani Sarees.webp",
+      "gallery": [
+        "Paithani Sarees 2.webp",
+        "Paithani Sarees 3.webp",
+        "Paithani Sarees 4.webp",
+        "Paithani Sarees 5.webp",
+        "Paithani Sarees 6.webp"
+      ]
+    },
+    {
+      "name": "Printed Sarees",
+      "file": "Printed Sarees.jpg",
+      "gallery": [
+        "Printed Sarees 2.jpg",
+        "Printed Sarees 3.jpg",
+        "Printed Sarees 4.jpg",
+        "Printed Sarees 5.jpg",
+        "Printed Sarees 6.webp"
+      ]
+    },
+    {
+      "name": "Rapier Silk Sarees",
+      "file": "Rapier Silk Sarees.jpg",
+      "gallery": [
+        "Rapier Silk Sarees 2.jpg",
+        "Rapier Silk Sarees 3.jpg",
+        "Rapier Silk Sarees 4.jpg",
+        "Rapier Silk Sarees 5.jpg",
+        "Rapier Silk Sarees 6.jpg"
+      ]
+    },
+    {
+      "name": "Uniform Sarees",
+      "file": "Uniform Sarees.webp",
+      "gallery": [
+        "Uniform Sarees 2.jpg",
+        "Uniform Sarees 3.webp",
+        "Uniform Sarees 4.webp",
+        "Uniform Sarees 5.webp",
+        "Uniform Sarees 6.webp"
+      ]
+    }
+  ],
+  "Suits": [
+    {
+      "name": "Embroidered Ladies Suit",
+      "file": "Embroidered Ladies Suit.webp",
+      "gallery": [
+        "Embroidered Ladies Suit 2.jpg",
+        "Embroidered Ladies Suit 3.jpg",
+        "Embroidered Ladies Suit 4.jpg",
+        "Embroidered Ladies Suit 5.jpg",
+        "Embroidered Ladies Suit 6.jpg"
+      ]
+    },
+    {
+      "name": "jaipuri Suit",
+      "file": "jaipuri Suit.webp",
+      "gallery": [
+        "jaipuri Suit 2.webp",
+        "jaipuri Suit 3.webp",
+        "jaipuri Suit 4.webp",
+        "jaipuri Suit 5.webp",
+        "jaipuri Suit 6.jpg"
+      ]
+    },
+    {
+      "name": "Ladies Designer Suits",
+      "file": "Ladies Designer Suits.webp",
+      "gallery": [
+        "Ladies Designer Suits 2.jpg",
+        "Ladies Designer Suits 3.jpg",
+        "Ladies Designer Suits 4.jpg",
+        "Ladies Designer Suits 5.webp",
+        "Ladies Designer Suits 6.jpg"
+      ]
+    },
+    {
+      "name": "Ladies Printed Suits",
+      "file": "Ladies Printed Suits.jpg",
+      "gallery": [
+        "Ladies Printed Suits 2.jpg",
+        "Ladies Printed Suits 3.jpg",
+        "Ladies Printed Suits 4.jpg",
+        "Ladies Printed Suits 5.jpg",
+        "Ladies Printed Suits 6.webp"
+      ]
+    },
+    {
+      "name": "Pakistani Suit",
+      "file": "Pakistani Suit.webp",
+      "gallery": [
+        "Pakistani Suit 2.webp",
+        "Pakistani Suit 3.webp",
+        "Pakistani Suit 4.webp",
+        "Pakistani Suit 5.webp",
+        "Pakistani Suit 6.jpg"
+      ]
+    },
+    {
+      "name": "Punjabi Suits",
+      "file": "Punjabi Suits.webp",
+      "gallery": [
+        "Punjabi Suits 2.webp",
+        "Punjabi Suits 3.webp",
+        "Punjabi Suits 4.webp",
+        "Punjabi Suits 5.webp",
+        "Punjabi Suits 6.webp"
+      ]
+    },
+    {
+      "name": "Salwar Suit",
+      "file": "Salwar Suit.webp",
+      "gallery": [
+        "Salwar Suit 2.webp",
+        "Salwar Suit 3.webp",
+        "Salwar Suit 4.webp",
+        "Salwar Suit 5.webp",
+        "Salwar Suit 6.webp"
+      ]
+    }
+  ],
+  "Women Bottom Wear": [
+    {
+      "name": "Women Bell Bottom Jeans",
+      "file": "Women Bell Bottom Jeans.avif",
+      "gallery": [
+        "Women Bell Bottom Jeans 2.avif",
+        "Women Bell Bottom Jeans 3.avif",
+        "Women Bell Bottom Jeans 4.avif",
+        "Women Bell Bottom Jeans 5.avif",
+        "Women Bell Bottom Jeans 6.avif"
+      ]
+    },
+    {
+      "name": "Women Bottom Jeans",
+      "file": "Women Bottom Jeans.avif",
+      "gallery": [
+        "Women Bottom Jeans 5.avif",
+        "Women Bottom Jeans 6.avif",
+        "Women Bottom Jeans 2.avif",
+        "Women Bottom Jeans 4.avif",
+        "Women Bottom Jeans 3.avif"
+      ]
+    },
+    {
+      "name": "Women Jeggings",
+      "file": "Women Jeggings 6.webp",
+      "gallery": [
+        "Women Jeggings 5.webp",
+        "Women Jeggings.webp",
+        "Women Jeggings 4.webp",
+        "Women Jeggings 3.webp",
+        "Women Jeggings 2.webp"
+      ]
+    },
+    {
+      "name": "Women Leggings",
+      "file": "Women Leggings.webp",
+      "gallery": [
+        "Women Leggings 2.webp",
+        "Women Leggings 3.webp",
+        "Women Leggings 4.webp",
+        "Women Leggings 5.webp",
+        "Women Leggings 6.webp"
+      ]
+    },
+    {
+      "name": "Women Pajama",
+      "file": "Women Pajama.webp",
+      "gallery": [
+        "Women Pajama 2.webp",
+        "Women Pajama 3.webp",
+        "Women Pajama 4.webp",
+        "Women Pajama 5.webp",
+        "Women Pajama 6.webp"
+      ]
+    },
+    {
+      "name": "Women Palazzo Pants",
+      "file": "Women Palazzo Pants 2.webp",
+      "gallery": [
+        "Women Palazzo Pants.webp",
+        "Women Palazzo Pants 3.webp",
+        "Women Palazzo Pants 4.webp",
+        "Women Palazzo Pants 5.webp",
+        "Women Palazzo Pants 6.webp"
+      ]
+    },
+    {
+      "name": "Women Pants",
+      "file": "Women Pants.webp",
+      "gallery": [
+        "Women Pants 2.webp",
+        "Women Pants 3.webp",
+        "Women Pants 4.webp",
+        "Women Pants 5.webp",
+        "Women Pants 6.webp"
+      ]
+    },
+    {
+      "name": "Women Shorts",
+      "file": "Women Shorts.avif",
+      "gallery": [
+        "Women Shorts 2.avif",
+        "Women Shorts 3.avif",
+        "Women Shorts 4.avif",
+        "Women Shorts 5.avif",
+        "Women Shorts 6.avif"
+      ]
+    }
+  ]
+}
