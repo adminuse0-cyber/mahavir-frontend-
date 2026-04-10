@@ -52,7 +52,7 @@ const Login = () => {
         console.log('Server Error Data:', err.response.data);
         console.log('Server Error Status:', err.response.status);
         if (err.response.status === 401) {
-          setError('Incorrect Mobile/Email, Password, or Role selected.');
+          setError(err.response.data?.message || 'Incorrect Mobile/Email, Password, or Role selected.');
         } else {
           setError(err.response.data?.message || 'Server Error. Please try again later.');
         }
