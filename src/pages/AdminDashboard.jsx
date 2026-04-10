@@ -219,7 +219,6 @@ const AdminDashboard = () => {
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link className="button-primary" to="/admin_worker_activity" style={{ textDecoration: 'none' }}>Manage Worker Activities</Link>
             <Link className="button-primary" to="/admin_merchant_bills" style={{ textDecoration: 'none' }}>Manage Merchant Bills</Link>
-            <a className="button-primary" href="#registered-users" style={{ textDecoration: 'none' }}>Manage All Users</a>
           </div>
         </div>
 
@@ -258,7 +257,9 @@ const AdminDashboard = () => {
                       <td>{u.role === 'Worker' ? (u.skills || '') : u.role}</td>
                       <td style={{ display: 'flex', gap: '5px' }}>
                         <button className="button-primary" style={{ padding: '4px 8px', fontSize: '12px' }} onClick={() => openEditModal(u)}>Edit</button>
-                        <button className="button-secondary" style={{ padding: '4px 8px', fontSize: '12px', background: '#e53935', color: '#fff', border: 'none' }} onClick={() => handleDeleteUser(u._id)}>Delete</button>
+                        {u.role !== 'Admin' && u.role !== 'CEO / Owner' && u.role !== 'CEO' && (
+                          <button className="button-secondary" style={{ padding: '4px 8px', fontSize: '12px', background: '#e53935', color: '#fff', border: 'none' }} onClick={() => handleDeleteUser(u._id)}>Delete</button>
+                        )}
                       </td>
                     </tr>
                   ))
