@@ -5,14 +5,14 @@ import ScrollingText from '../components/ScrollingText';
 import API_BASE_URL from '../utils/api';
 
 const subMap = {
-  "Saree": ["Dyed Fancy Matching Saree","Cotton Sarees","Rapier Silk Sarees","Printed Sarees","Paithani Sarees","Dyed Matching Sarees","Uniform Sarees"],
-  "Lehenga": ["Surat Lehenga","Designer Lehenga","Indo Western Lehenga","Party Wear Lehenga","Wedding Lehenga","Bridal Lehenga"],
-  "Suit": ["Ladies Designer Suits","Ladies Printed Suits","Embroidered Ladies Suit","Pakistani Suits","Jaipuri Suit","Punjabi Suits","Salwar Suit"],
-  "Kurti": ["Surat Kurti","Surat Kurta","Nayra Cut Kurti","Ladies Kurti","Half Sleeve Kurtis","Long Kurti","Lucknowi Kurtis","Handloom Cotton Kurti"],
-  "Dupatta": ["Cotton Dupatta","Chiffon Dupatta","Silk Dupatta","Net Dupatta","Velvet Dupatta","Georgette Dupatta","Rayon Dupatta","Satin Dupatta","Linen Dupatta","Printed Dupatta","Plain Dupatta","Embroidery Dupatta"],
-  "Blouse": ["Designer Blouse","Ready Made Blouse","Stretchable Blouse","Blouse Pcs"],
-  "Petticoat": ["Saree Shapewear Petticoat","Stitch Petticoat","Poplin Petticoat","Poplin Than Petticoat"],
-  "Women Bottom Wear": ["Women Pajama","Women Shorts","Women Pants","Women Bottom Jeans","Women Bell Bottom Jeans","Women Leggings","Women Jeggings","Women Palazzo Pants"]
+  "Saree": ["Dyed Fancy Matching Saree", "Cotton Sarees", "Rapier Silk Sarees", "Printed Sarees", "Paithani Sarees", "Dyed Matching Sarees", "Uniform Sarees"],
+  "Lehenga": ["Surat Lehenga", "Designer Lehenga", "Indo Western Lehenga", "Party Wear Lehenga", "Wedding Lehenga", "Bridal Lehenga"],
+  "Suit": ["Ladies Designer Suits", "Ladies Printed Suits", "Embroidered Ladies Suit", "Pakistani Suits", "Jaipuri Suit", "Punjabi Suits", "Salwar Suit"],
+  "Kurti": ["Surat Kurti", "Surat Kurta", "Nayra Cut Kurti", "Ladies Kurti", "Half Sleeve Kurtis", "Long Kurti", "Lucknowi Kurtis", "Handloom Cotton Kurti"],
+  "Dupatta": ["Cotton Dupatta", "Chiffon Dupatta", "Silk Dupatta", "Net Dupatta", "Velvet Dupatta", "Georgette Dupatta", "Rayon Dupatta", "Satin Dupatta", "Linen Dupatta", "Printed Dupatta", "Plain Dupatta", "Embroidery Dupatta"],
+  "Blouse": ["Designer Blouse", "Ready Made Blouse", "Stretchable Blouse", "Blouse Pcs"],
+  "Petticoat": ["Saree Shapewear Petticoat", "Stitch Petticoat", "Poplin Petticoat", "Poplin Than Petticoat"],
+  "Women Bottom Wear": ["Women Pajama", "Women Shorts", "Women Pants", "Women Bottom Jeans", "Women Bell Bottom Jeans", "Women Leggings", "Women Jeggings", "Women Palazzo Pants"]
 };
 
 const OwnerDashboard = () => {
@@ -39,7 +39,7 @@ const OwnerDashboard = () => {
   const [newName, setNewName] = useState('');
   const [newPhone, setNewPhone] = useState('');
   const [newPassword, setNewPassword] = useState('');
-  
+
   // Worker specific
   const [address, setAddress] = useState('');
   const [dob, setDob] = useState('');
@@ -52,7 +52,7 @@ const OwnerDashboard = () => {
   const [prodCategory, setProdCategory] = useState('');
   const [prodSub, setProdSub] = useState('');
   const [prodPrice, setProdPrice] = useState('');
-  
+
   // Work Option Form states
   const [workOptionName, setWorkOptionName] = useState('Lace Sewing');
   const [workOptionPrice, setWorkOptionPrice] = useState('');
@@ -75,15 +75,15 @@ const OwnerDashboard = () => {
     if (!user) return;
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      
+
       const resUsers = await axios.get(`${API_BASE_URL}/api/users/users`, config);
       setUsers(resUsers.data);
-      
+
       let w = 0, m = 0, a = 0;
       resUsers.data.forEach(u => {
-        if(u.role === 'Worker') w++;
-        else if(u.role === 'Merchant') m++;
-        else if(u.role === 'Admin') a++;
+        if (u.role === 'Worker') w++;
+        else if (u.role === 'Merchant') m++;
+        else if (u.role === 'Admin') a++;
       });
       setCounts(prev => ({ ...prev, workers: w, merchants: m, admins: a }));
 
@@ -178,7 +178,7 @@ const OwnerDashboard = () => {
       await axios.post(`${API_BASE_URL}/api/products`, payload, config);
       // We don't fetch data here immediately to avoid losing focus if they are typing fast
       // But we update local state
-      setProducts(prev => prev.map(prod => prod._id === p._id ? {...prod, priceSaleReady: Number(newPrice)} : prod));
+      setProducts(prev => prev.map(prod => prod._id === p._id ? { ...prod, priceSaleReady: Number(newPrice) } : prod));
     } catch (error) {
       console.error(error);
     }
@@ -244,8 +244,8 @@ const OwnerDashboard = () => {
     }
   };
 
-  const filteredUsers = selectedUserRoleFilter === 'All' 
-    ? users 
+  const filteredUsers = selectedUserRoleFilter === 'All'
+    ? users
     : users.filter(u => u.role === selectedUserRoleFilter);
 
   if (!user) return null;
@@ -265,9 +265,9 @@ const OwnerDashboard = () => {
         </div>
         <div className="navbar-right" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <div style={{ fontSize: '15px', fontWeight: '700', color: '#ffffffff', letterSpacing: '0.02em' }}>Logged in as {user.name} ({user.role})</div>
-          <button 
-            onClick={() => { localStorage.removeItem('userInfo'); navigate('/login'); }} 
-            className="button-secondary" 
+          <button
+            onClick={() => { localStorage.removeItem('userInfo'); navigate('/login'); }}
+            className="button-secondary"
             style={{ padding: '6px 12px', fontSize: '12px', border: '1px solid #fff', color: '#fff', background: 'transparent' }}
           >
             Logout
@@ -276,38 +276,38 @@ const OwnerDashboard = () => {
       </div>
 
       <div className="main-container">
-        
+
         {/* Company Snapshot Section (CEO Only) */}
         <div className="section">
           <h2>Company Snapshot</h2>
           <div className="stats-row">
             <div className="stat-card">
-                <div className="stat-icon">{counts.workers}</div>
-                <div>
-                    <div className="stat-text-title">Total Workers</div>
-                    <div className="stat-text-desc">Active worker accounts in the system.</div>
-                </div>
+              <div className="stat-icon">{counts.workers}</div>
+              <div>
+                <div className="stat-text-title">Total Workers</div>
+                <div className="stat-text-desc">Active worker accounts in the system.</div>
+              </div>
             </div>
             <div className="stat-card">
-                <div className="stat-icon">{counts.merchants}</div>
-                <div>
-                    <div className="stat-text-title">Total Merchants</div>
-                    <div className="stat-text-desc">Business partners working with Mahavir Creation.</div>
-                </div>
+              <div className="stat-icon">{counts.merchants}</div>
+              <div>
+                <div className="stat-text-title">Total Merchants</div>
+                <div className="stat-text-desc">Business partners working with Mahavir Creation.</div>
+              </div>
             </div>
             <div className="stat-card">
-                <div className="stat-icon">{counts.admins}</div>
-                <div>
-                    <div className="stat-text-title">Managers</div>
-                    <div className="stat-text-desc">Admin accounts handling day‑to‑day activity.</div>
-                </div>
+              <div className="stat-icon">{counts.admins}</div>
+              <div>
+                <div className="stat-text-title">Managers</div>
+                <div className="stat-text-desc">Admin accounts handling day‑to‑day activity.</div>
+              </div>
             </div>
             <div className="stat-card">
-                <div className="stat-icon">₹</div>
-                <div>
-                    <div className="stat-text-title">Turnover (Demo)</div>
-                    <div className="stat-text-desc">Can be linked to real sales / orders data later.</div>
-                </div>
+              <div className="stat-icon">₹</div>
+              <div>
+                <div className="stat-text-title">Turnover (Demo)</div>
+                <div className="stat-text-desc">Can be linked to real sales / orders data later.</div>
+              </div>
             </div>
           </div>
         </div>
@@ -319,9 +319,9 @@ const OwnerDashboard = () => {
           <form onSubmit={handleRegisterUser}>
             <label>Register As</label>
             <select required value={newRole} onChange={(e) => setNewRole(e.target.value)}>
-                <option value="">-- Select Role --</option>
-                <option value="Merchant">Merchant</option>
-                <option value="Worker">Worker</option>
+              <option value="">-- Select Role --</option>
+              <option value="Merchant">Merchant</option>
+              <option value="Worker">Worker</option>
             </select>
 
             <label>Full Name</label>
@@ -352,16 +352,16 @@ const OwnerDashboard = () => {
 
                 <label>Best Work In (Select one or more)</label>
                 <div className="product-grid" style={{ display: 'flex', gap: '15px', flexWrap: 'wrap', marginTop: '6px' }}>
-                    {Object.keys(subMap).map(cat => (
-                      <label key={cat} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                        <input type="checkbox" checked={skills.includes(cat)} onChange={() => toggleSkill(cat)} /> {cat}
-                      </label>
-                    ))}
+                  {Object.keys(subMap).map(cat => (
+                    <label key={cat} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                      <input type="checkbox" checked={skills.includes(cat)} onChange={() => toggleSkill(cat)} /> {cat}
+                    </label>
+                  ))}
                 </div>
               </div>
             )}
 
-            <button type="submit" className="button-primary" style={{width:'100%', marginTop:'12px'}}>Create Account</button>
+            <button type="submit" className="button-primary" style={{ width: '100%', marginTop: '12px' }}>Create Account</button>
           </form>
         </div>
 
@@ -372,7 +372,7 @@ const OwnerDashboard = () => {
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link className="button-primary" to="/admin_worker_activity" style={{ textDecoration: 'none' }}>Manage Worker Activities</Link>
             <Link className="button-primary" to="/admin_merchant_bills" style={{ textDecoration: 'none' }}>Manage Merchant Bills</Link>
-            <a className="button-primary" href="#registered-users" onClick={() => setSelectedUserRoleFilter('Merchant')} style={{ textDecoration: 'none' }}>Manage Merchant</a>
+            <Link className="button-primary" to="/admin_merchants" style={{ textDecoration: 'none' }}>Manage Merchant</Link>
           </div>
         </div>
 
@@ -444,10 +444,10 @@ const OwnerDashboard = () => {
                 {inquiries && inquiries.length > 0 ? (
                   inquiries.map(iq => (
                     <tr key={iq._id}>
-                      <td><span style={{fontWeight:'bold'}}>{iq.productName}</span><br/><small>{iq.productCategory}</small></td>
+                      <td><span style={{ fontWeight: 'bold' }}>{iq.productName}</span><br /><small>{iq.productCategory}</small></td>
                       <td>{iq.name}</td>
                       <td>{iq.phone}</td>
-                      <td style={{whiteSpace: 'pre-wrap'}}>{iq.message}</td>
+                      <td style={{ whiteSpace: 'pre-wrap' }}>{iq.message}</td>
                       <td>{new Date(iq.createdAt).toLocaleString()}</td>
                     </tr>
                   ))
@@ -481,7 +481,7 @@ const OwnerDashboard = () => {
                       <td>{c.name}</td>
                       <td>{c.phone}</td>
                       <td>{c.interest}</td>
-                      <td style={{whiteSpace: 'pre-wrap'}}>{c.message}</td>
+                      <td style={{ whiteSpace: 'pre-wrap' }}>{c.message}</td>
                       <td>{new Date(c.createdAt).toLocaleString()}</td>
                     </tr>
                   ))
@@ -514,17 +514,17 @@ const OwnerDashboard = () => {
                       <td>{p.category}</td>
                       <td>{p.name}</td>
                       <td>
-                         <input 
-                           type="number" 
-                           min="0" step="0.01" 
-                           defaultValue={p.priceSaleReady || 0}
-                           onBlur={(e) => {
-                             if(Number(e.target.value) !== (p.priceSaleReady || 0)) {
-                               handleUpdateInline(p, e.target.value);
-                             }
-                           }}
-                           style={{ width: '120px', padding: '4px' }}
-                         />
+                        <input
+                          type="number"
+                          min="0" step="0.01"
+                          defaultValue={p.priceSaleReady || 0}
+                          onBlur={(e) => {
+                            if (Number(e.target.value) !== (p.priceSaleReady || 0)) {
+                              handleUpdateInline(p, e.target.value);
+                            }
+                          }}
+                          style={{ width: '120px', padding: '4px' }}
+                        />
                       </td>
                     </tr>
                   ))
@@ -594,45 +594,45 @@ const OwnerDashboard = () => {
       {isEditModalOpen && (
         <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000, overflowY: 'auto' }}>
           <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', width: '90%', maxWidth: '400px', maxHeight: '90vh', overflowY: 'auto', marginTop: '20px', marginBottom: '20px' }}>
-             <h3>Edit User</h3>
-             <form onSubmit={handleUpdateUser} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <label>Name</label>
-                <input type="text" value={editFormData.name} onChange={e => setEditFormData({...editFormData, name: e.target.value})} required />
-                
-                <label>Phone</label>
-                <input type="text" value={editFormData.phone} onChange={e => setEditFormData({...editFormData, phone: e.target.value})} required />
-                
-                <label>Role</label>
-                <select value={editFormData.role} onChange={e => setEditFormData({...editFormData, role: e.target.value})}>
-                   <option value="Merchant">Merchant</option>
-                   <option value="Worker">Worker</option>
-                   <option value="Product Buy">Product Buy</option>
-                   <option value="Admin">Admin</option>
-                   <option value="CEO / Owner">CEO / Owner</option>
-                </select>
+            <h3>Edit User</h3>
+            <form onSubmit={handleUpdateUser} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <label>Name</label>
+              <input type="text" value={editFormData.name} onChange={e => setEditFormData({ ...editFormData, name: e.target.value })} required />
 
-                {editFormData.role === 'Worker' && (
-                  <>
-                    <label>Address</label>
-                    <textarea rows="2" value={editFormData.address} onChange={e => setEditFormData({...editFormData, address: e.target.value})}></textarea>
-                    <label>Date of Birth</label>
-                    <input type="date" value={editFormData.dob} onChange={e => setEditFormData({...editFormData, dob: e.target.value})} />
-                    <label>Age</label>
-                    <input type="number" min="16" max="80" value={editFormData.age} onChange={e => setEditFormData({...editFormData, age: e.target.value})} />
-                    <label>Working Experience</label>
-                    <input type="text" value={editFormData.experience} onChange={e => setEditFormData({...editFormData, experience: e.target.value})} />
-                    <label>Working Hours</label>
-                    <input type="number" min="1" max="24" value={editFormData.hours} onChange={e => setEditFormData({...editFormData, hours: e.target.value})} />
-                    <label>Skills</label>
-                    <input type="text" value={editFormData.skills} onChange={e => setEditFormData({...editFormData, skills: e.target.value})} />
-                  </>
-                )}
+              <label>Phone</label>
+              <input type="text" value={editFormData.phone} onChange={e => setEditFormData({ ...editFormData, phone: e.target.value })} required />
 
-                <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
-                   <button type="button" className="button-secondary" style={{ flex: 1 }} onClick={() => setIsEditModalOpen(false)}>Cancel</button>
-                   <button type="submit" className="button-primary" style={{ flex: 1 }}>Save</button>
-                </div>
-             </form>
+              <label>Role</label>
+              <select value={editFormData.role} onChange={e => setEditFormData({ ...editFormData, role: e.target.value })}>
+                <option value="Merchant">Merchant</option>
+                <option value="Worker">Worker</option>
+                <option value="Product Buy">Product Buy</option>
+                <option value="Admin">Admin</option>
+                <option value="CEO / Owner">CEO / Owner</option>
+              </select>
+
+              {editFormData.role === 'Worker' && (
+                <>
+                  <label>Address</label>
+                  <textarea rows="2" value={editFormData.address} onChange={e => setEditFormData({ ...editFormData, address: e.target.value })}></textarea>
+                  <label>Date of Birth</label>
+                  <input type="date" value={editFormData.dob} onChange={e => setEditFormData({ ...editFormData, dob: e.target.value })} />
+                  <label>Age</label>
+                  <input type="number" min="16" max="80" value={editFormData.age} onChange={e => setEditFormData({ ...editFormData, age: e.target.value })} />
+                  <label>Working Experience</label>
+                  <input type="text" value={editFormData.experience} onChange={e => setEditFormData({ ...editFormData, experience: e.target.value })} />
+                  <label>Working Hours</label>
+                  <input type="number" min="1" max="24" value={editFormData.hours} onChange={e => setEditFormData({ ...editFormData, hours: e.target.value })} />
+                  <label>Skills</label>
+                  <input type="text" value={editFormData.skills} onChange={e => setEditFormData({ ...editFormData, skills: e.target.value })} />
+                </>
+              )}
+
+              <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                <button type="button" className="button-secondary" style={{ flex: 1 }} onClick={() => setIsEditModalOpen(false)}>Cancel</button>
+                <button type="submit" className="button-primary" style={{ flex: 1 }}>Save</button>
+              </div>
+            </form>
           </div>
         </div>
       )}

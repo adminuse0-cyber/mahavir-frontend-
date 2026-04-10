@@ -5,14 +5,14 @@ import ScrollingText from '../components/ScrollingText';
 import API_BASE_URL from '../utils/api';
 
 const subMap = {
-  "Saree": ["Dyed Fancy Matching Saree","Cotton Sarees","Rapier Silk Sarees","Printed Sarees","Paithani Sarees","Dyed Matching Sarees","Uniform Sarees"],
-  "Lehenga": ["Surat Lehenga","Designer Lehenga","Indo Western Lehenga","Party Wear Lehenga","Wedding Lehenga","Bridal Lehenga"],
-  "Suit": ["Ladies Designer Suits","Ladies Printed Suits","Embroidered Ladies Suit","Pakistani Suits","Jaipuri Suit","Punjabi Suits","Salwar Suit"],
-  "Kurti": ["Surat Kurti","Surat Kurta","Nayra Cut Kurti","Ladies Kurti","Half Sleeve Kurtis","Long Kurti","Lucknowi Kurtis","Handloom Cotton Kurti"],
-  "Dupatta": ["Cotton Dupatta","Chiffon Dupatta","Silk Dupatta","Net Dupatta","Velvet Dupatta","Georgette Dupatta","Rayon Dupatta","Satin Dupatta","Linen Dupatta","Printed Dupatta","Plain Dupatta","Embroidery Dupatta"],
-  "Blouse": ["Designer Blouse","Ready Made Blouse","Stretchable Blouse","Blouse Pcs"],
-  "Petticoat": ["Saree Shapewear Petticoat","Stitch Petticoat","Poplin Petticoat","Poplin Than Petticoat"],
-  "Women Bottom Wear": ["Women Pajama","Women Shorts","Women Pants","Women Bottom Jeans","Women Bell Bottom Jeans","Women Leggings","Women Jeggings","Women Palazzo Pants"]
+  "Saree": ["Dyed Fancy Matching Saree", "Cotton Sarees", "Rapier Silk Sarees", "Printed Sarees", "Paithani Sarees", "Dyed Matching Sarees", "Uniform Sarees"],
+  "Lehenga": ["Surat Lehenga", "Designer Lehenga", "Indo Western Lehenga", "Party Wear Lehenga", "Wedding Lehenga", "Bridal Lehenga"],
+  "Suit": ["Ladies Designer Suits", "Ladies Printed Suits", "Embroidered Ladies Suit", "Pakistani Suits", "Jaipuri Suit", "Punjabi Suits", "Salwar Suit"],
+  "Kurti": ["Surat Kurti", "Surat Kurta", "Nayra Cut Kurti", "Ladies Kurti", "Half Sleeve Kurtis", "Long Kurti", "Lucknowi Kurtis", "Handloom Cotton Kurti"],
+  "Dupatta": ["Cotton Dupatta", "Chiffon Dupatta", "Silk Dupatta", "Net Dupatta", "Velvet Dupatta", "Georgette Dupatta", "Rayon Dupatta", "Satin Dupatta", "Linen Dupatta", "Printed Dupatta", "Plain Dupatta", "Embroidery Dupatta"],
+  "Blouse": ["Designer Blouse", "Ready Made Blouse", "Stretchable Blouse", "Blouse Pcs"],
+  "Petticoat": ["Saree Shapewear Petticoat", "Stitch Petticoat", "Poplin Petticoat", "Poplin Than Petticoat"],
+  "Women Bottom Wear": ["Women Pajama", "Women Shorts", "Women Pants", "Women Bottom Jeans", "Women Bell Bottom Jeans", "Women Leggings", "Women Jeggings", "Women Palazzo Pants"]
 };
 
 const AdminDashboard = () => {
@@ -35,7 +35,7 @@ const AdminDashboard = () => {
   const [prodCategory, setProdCategory] = useState('');
   const [prodSub, setProdSub] = useState('');
   const [prodPrice, setProdPrice] = useState('');
-  
+
   const [workOptionName, setWorkOptionName] = useState('Lace Sewing');
   const [workOptionPrice, setWorkOptionPrice] = useState('');
 
@@ -57,7 +57,7 @@ const AdminDashboard = () => {
     if (!user) return;
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      
+
       const resUsers = await axios.get(`${API_BASE_URL}/api/users/users`, config);
       setUsers(resUsers.data);
 
@@ -118,7 +118,7 @@ const AdminDashboard = () => {
         price: Number(newPrice)
       };
       await axios.post(`${API_BASE_URL}/api/products`, payload, config);
-      setProducts(prev => prev.map(prod => prod._id === p._id ? {...prod, priceSaleReady: Number(newPrice)} : prod));
+      setProducts(prev => prev.map(prod => prod._id === p._id ? { ...prod, priceSaleReady: Number(newPrice) } : prod));
     } catch (error) {
       console.error(error);
     }
@@ -179,8 +179,8 @@ const AdminDashboard = () => {
     }
   };
 
-  const filteredUsers = selectedUserRoleFilter === 'All' 
-    ? users 
+  const filteredUsers = selectedUserRoleFilter === 'All'
+    ? users
     : users.filter(u => u.role === selectedUserRoleFilter);
 
   if (!user) return null;
@@ -200,9 +200,9 @@ const AdminDashboard = () => {
         </div>
         <div className="navbar-right" style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>
           <div style={{ fontSize: '15px', fontWeight: '700', color: '#ffffffff', letterSpacing: '0.02em' }}>Logged in as {user.name} (Admin)</div>
-          <button 
-            onClick={() => { localStorage.removeItem('userInfo'); navigate('/login'); }} 
-            className="button-secondary" 
+          <button
+            onClick={() => { localStorage.removeItem('userInfo'); navigate('/login'); }}
+            className="button-secondary"
             style={{ padding: '6px 12px', fontSize: '12px', border: '1px solid #fff', color: '#fff', background: 'transparent' }}
           >
             Logout
@@ -211,7 +211,7 @@ const AdminDashboard = () => {
       </div>
 
       <div className="main-container">
-        
+
         {/* Activities Section */}
         <div className="section">
           <h2>Activities</h2>
@@ -219,7 +219,7 @@ const AdminDashboard = () => {
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link className="button-primary" to="/admin_worker_activity" style={{ textDecoration: 'none' }}>Manage Worker Activities</Link>
             <Link className="button-primary" to="/admin_merchant_bills" style={{ textDecoration: 'none' }}>Manage Merchant Bills</Link>
-            <a className="button-primary" href="#registered-users" onClick={() => setSelectedUserRoleFilter('Merchant')} style={{ textDecoration: 'none' }}>Manage Merchant</a>
+            <Link className="button-primary" to="/admin_merchants" style={{ textDecoration: 'none' }}>Manage Merchant</Link>
           </div>
         </div>
 
@@ -291,10 +291,10 @@ const AdminDashboard = () => {
                 {inquiries && inquiries.length > 0 ? (
                   inquiries.map(iq => (
                     <tr key={iq._id}>
-                      <td><span style={{fontWeight:'bold'}}>{iq.productName}</span><br/><small>{iq.productCategory}</small></td>
+                      <td><span style={{ fontWeight: 'bold' }}>{iq.productName}</span><br /><small>{iq.productCategory}</small></td>
                       <td>{iq.name}</td>
                       <td>{iq.phone}</td>
-                      <td style={{whiteSpace: 'pre-wrap'}}>{iq.message}</td>
+                      <td style={{ whiteSpace: 'pre-wrap' }}>{iq.message}</td>
                       <td>{new Date(iq.createdAt).toLocaleString()}</td>
                     </tr>
                   ))
@@ -328,7 +328,7 @@ const AdminDashboard = () => {
                       <td>{c.name}</td>
                       <td>{c.phone}</td>
                       <td>{c.interest}</td>
-                      <td style={{whiteSpace: 'pre-wrap'}}>{c.message}</td>
+                      <td style={{ whiteSpace: 'pre-wrap' }}>{c.message}</td>
                       <td>{new Date(c.createdAt).toLocaleString()}</td>
                     </tr>
                   ))
@@ -361,17 +361,17 @@ const AdminDashboard = () => {
                       <td>{p.category}</td>
                       <td>{p.name}</td>
                       <td>
-                         <input 
-                           type="number" 
-                           min="0" step="0.01" 
-                           defaultValue={p.priceSaleReady || 0}
-                           onBlur={(e) => {
-                             if(Number(e.target.value) !== (p.priceSaleReady || 0)) {
-                               handleUpdateInline(p, e.target.value);
-                             }
-                           }}
-                           style={{ width: '120px', padding: '4px' }}
-                         />
+                        <input
+                          type="number"
+                          min="0" step="0.01"
+                          defaultValue={p.priceSaleReady || 0}
+                          onBlur={(e) => {
+                            if (Number(e.target.value) !== (p.priceSaleReady || 0)) {
+                              handleUpdateInline(p, e.target.value);
+                            }
+                          }}
+                          style={{ width: '120px', padding: '4px' }}
+                        />
                       </td>
                     </tr>
                   ))
@@ -441,34 +441,34 @@ const AdminDashboard = () => {
       {isEditModalOpen && (
         <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
           <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', width: '90%', maxWidth: '400px' }}>
-             <h3>Edit User</h3>
-             <form onSubmit={handleUpdateUser} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                <label>Name</label>
-                <input type="text" value={editFormData.name} onChange={e => setEditFormData({...editFormData, name: e.target.value})} required />
-                
-                <label>Phone</label>
-                <input type="text" value={editFormData.phone} onChange={e => setEditFormData({...editFormData, phone: e.target.value})} required />
-                
-                <label>Role</label>
-                <select value={editFormData.role} onChange={e => setEditFormData({...editFormData, role: e.target.value})}>
-                   <option value="Merchant">Merchant</option>
-                   <option value="Worker">Worker</option>
-                   <option value="Product Buy">Product Buy</option>
-                   <option value="Admin">Admin</option>
-                </select>
+            <h3>Edit User</h3>
+            <form onSubmit={handleUpdateUser} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <label>Name</label>
+              <input type="text" value={editFormData.name} onChange={e => setEditFormData({ ...editFormData, name: e.target.value })} required />
 
-                {editFormData.role === 'Worker' && (
-                  <>
-                    <label>Skills</label>
-                    <input type="text" value={editFormData.skills} onChange={e => setEditFormData({...editFormData, skills: e.target.value})} />
-                  </>
-                )}
+              <label>Phone</label>
+              <input type="text" value={editFormData.phone} onChange={e => setEditFormData({ ...editFormData, phone: e.target.value })} required />
 
-                <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
-                   <button type="button" className="button-secondary" style={{ flex: 1 }} onClick={() => setIsEditModalOpen(false)}>Cancel</button>
-                   <button type="submit" className="button-primary" style={{ flex: 1 }}>Save</button>
-                </div>
-             </form>
+              <label>Role</label>
+              <select value={editFormData.role} onChange={e => setEditFormData({ ...editFormData, role: e.target.value })}>
+                <option value="Merchant">Merchant</option>
+                <option value="Worker">Worker</option>
+                <option value="Product Buy">Product Buy</option>
+                <option value="Admin">Admin</option>
+              </select>
+
+              {editFormData.role === 'Worker' && (
+                <>
+                  <label>Skills</label>
+                  <input type="text" value={editFormData.skills} onChange={e => setEditFormData({ ...editFormData, skills: e.target.value })} />
+                </>
+              )}
+
+              <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                <button type="button" className="button-secondary" style={{ flex: 1 }} onClick={() => setIsEditModalOpen(false)}>Cancel</button>
+                <button type="submit" className="button-primary" style={{ flex: 1 }}>Save</button>
+              </div>
+            </form>
           </div>
         </div>
       )}

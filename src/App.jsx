@@ -8,6 +8,7 @@ import MerchantDashboard from './pages/MerchantDashboard'
 import AdminDashboard from './pages/AdminDashboard'
 import AdminWorkerActivity from './pages/AdminWorkerActivity'
 import AdminMerchantBills from './pages/AdminMerchantBills'
+import AdminMerchants from './pages/AdminMerchants'
 import AdminBillEdit from './pages/AdminBillEdit'
 import AdminBillView from './pages/AdminBillView'
 import AdminWorkEdit from './pages/AdminWorkEdit'
@@ -43,6 +44,7 @@ function App() {
         <Route path="/admin_worker_activity" element={<AdminWorkerActivity />} />
         <Route path="/admin_work_edit/:id" element={<AdminWorkEdit />} />
         <Route path="/admin_merchant_bills" element={<AdminMerchantBills />} />
+        <Route path="/admin_merchants" element={<AdminMerchants />} />
         <Route path="/admin_bill_edit/:id" element={<AdminBillEdit />} />
         <Route path="/admin_bill_view/:id" element={<AdminBillView />} />
         
