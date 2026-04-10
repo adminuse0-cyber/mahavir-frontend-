@@ -25,6 +25,12 @@ const AdminDashboard = () => {
   const [products, setProducts] = useState([]);
   const [workOptions, setWorkOptions] = useState([]);
 
+  // Edit user modal state
+  const [selectedUserRoleFilter, setSelectedUserRoleFilter] = useState('All');
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [editingUser, setEditingUser] = useState(null);
+  const [editFormData, setEditFormData] = useState({ name: '', phone: '', role: '', skills: '' });
+
   // Form states
   const [prodCategory, setProdCategory] = useState('');
   const [prodSub, setProdSub] = useState('');
@@ -134,6 +140,49 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleDeleteUser = async (userId) => {
+    if (window.confirm("Are you sure you want to delete this user?")) {
+      try {
+        const config = { headers: { Authorization: `Bearer ${user.token}` } };
+        await axios.delete(`${API_BASE_URL}/api/users/${userId}`, config);
+        alert("User deleted successfully!");
+        fetchData();
+      } catch (error) {
+        console.error(error);
+        alert(error.response?.data?.message || "Failed to delete user");
+      }
+    }
+  };
+
+  const openEditModal = (u) => {
+    setEditingUser(u);
+    setEditFormData({
+      name: u.name || '',
+      phone: u.phone || '',
+      role: u.role || '',
+      skills: u.skills || ''
+    });
+    setIsEditModalOpen(true);
+  };
+
+  const handleUpdateUser = async (e) => {
+    e.preventDefault();
+    try {
+      const config = { headers: { Authorization: `Bearer ${user.token}` } };
+      await axios.put(`${API_BASE_URL}/api/users/${editingUser._id}`, editFormData, config);
+      alert("User updated successfully!");
+      setIsEditModalOpen(false);
+      fetchData();
+    } catch (error) {
+      console.error(error);
+      alert(error.response?.data?.message || "Failed to update user");
+    }
+  };
+
+  const filteredUsers = selectedUserRoleFilter === 'All' 
+    ? users 
+    : users.filter(u => u.role === selectedUserRoleFilter);
+
   if (!user) return null;
 
   return (
@@ -170,13 +219,24 @@ const AdminDashboard = () => {
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link className="button-primary" to="/admin_worker_activity" style={{ textDecoration: 'none' }}>Manage Worker Activities</Link>
             <Link className="button-primary" to="/admin_merchant_bills" style={{ textDecoration: 'none' }}>Manage Merchant Bills</Link>
+            <a className="button-primary" href="#registered-users" style={{ textDecoration: 'none' }}>Manage All Users</a>
           </div>
         </div>
 
         {/* Registered Users Section */}
-        <div className="section">
-          <h2>Registered Users</h2>
-          <p className="small-text">All accounts created via the register page. Admin can review and manage access.</p>
+        <div className="section" id="registered-users">
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap' }}>
+            <h2>Registered Users</h2>
+            <select value={selectedUserRoleFilter} onChange={e => setSelectedUserRoleFilter(e.target.value)} style={{ padding: '6px', borderRadius: '4px' }}>
+              <option value="All">All Users</option>
+              <option value="Merchant">Merchants</option>
+              <option value="Worker">Workers</option>
+              <option value="Product Buy">Product Buy</option>
+              <option value="Admin">Admins</option>
+              <option value="CEO / Owner">CEO / Owner</option>
+            </select>
+          </div>
+          <p className="small-text">All accounts created via the register page. Admin can review, edit, and delete access.</p>
           <div className="admin-table-wrapper">
             <table className="admin-table">
               <thead>
@@ -185,20 +245,25 @@ const AdminDashboard = () => {
                   <th>Mobile</th>
                   <th>Role</th>
                   <th>Skills / Notes</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
-                {users && users.length > 0 ? (
-                  users.map(u => (
+                {filteredUsers && filteredUsers.length > 0 ? (
+                  filteredUsers.map(u => (
                     <tr key={u._id}>
                       <td>{u.name}</td>
                       <td>{u.phone}</td>
                       <td>{u.role}</td>
-                      <td>{u.skills || ''}</td>
+                      <td>{u.role === 'Worker' ? (u.skills || '') : u.role}</td>
+                      <td style={{ display: 'flex', gap: '5px' }}>
+                        <button className="button-primary" style={{ padding: '4px 8px', fontSize: '12px' }} onClick={() => openEditModal(u)}>Edit</button>
+                        <button className="button-secondary" style={{ padding: '4px 8px', fontSize: '12px', background: '#e53935', color: '#fff', border: 'none' }} onClick={() => handleDeleteUser(u._id)}>Delete</button>
+                      </td>
                     </tr>
                   ))
                 ) : (
-                  <tr><td colSpan="4">No users found.</td></tr>
+                  <tr><td colSpan="5">No users found.</td></tr>
                 )}
               </tbody>
             </table>
@@ -369,6 +434,43 @@ const AdminDashboard = () => {
         </div>
 
       </div>
+
+      {/* Edit User Modal */}
+      {isEditModalOpen && (
+        <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 1000 }}>
+          <div style={{ background: '#fff', padding: '20px', borderRadius: '8px', width: '90%', maxWidth: '400px' }}>
+             <h3>Edit User</h3>
+             <form onSubmit={handleUpdateUser} style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+                <label>Name</label>
+                <input type="text" value={editFormData.name} onChange={e => setEditFormData({...editFormData, name: e.target.value})} required />
+                
+                <label>Phone</label>
+                <input type="text" value={editFormData.phone} onChange={e => setEditFormData({...editFormData, phone: e.target.value})} required />
+                
+                <label>Role</label>
+                <select value={editFormData.role} onChange={e => setEditFormData({...editFormData, role: e.target.value})}>
+                   <option value="Merchant">Merchant</option>
+                   <option value="Worker">Worker</option>
+                   <option value="Product Buy">Product Buy</option>
+                   <option value="Admin">Admin</option>
+                </select>
+
+                {editFormData.role === 'Worker' && (
+                  <>
+                    <label>Skills</label>
+                    <input type="text" value={editFormData.skills} onChange={e => setEditFormData({...editFormData, skills: e.target.value})} />
+                  </>
+                )}
+
+                <div style={{ display: 'flex', gap: '10px', marginTop: '15px' }}>
+                   <button type="button" className="button-secondary" style={{ flex: 1 }} onClick={() => setIsEditModalOpen(false)}>Cancel</button>
+                   <button type="submit" className="button-primary" style={{ flex: 1 }}>Save</button>
+                </div>
+             </form>
+          </div>
+        </div>
+      )}
+
     </>
   );
 };
