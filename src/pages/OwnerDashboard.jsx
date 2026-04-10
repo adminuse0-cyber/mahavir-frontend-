@@ -372,6 +372,7 @@ const OwnerDashboard = () => {
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <Link className="button-primary" to="/admin_worker_activity" style={{ textDecoration: 'none' }}>Manage Worker Activities</Link>
             <Link className="button-primary" to="/admin_merchant_bills" style={{ textDecoration: 'none' }}>Manage Merchant Bills</Link>
+            <a className="button-primary" href="#registered-users" onClick={() => setSelectedUserRoleFilter('Merchant')} style={{ textDecoration: 'none' }}>Manage Merchant</a>
           </div>
         </div>
 
